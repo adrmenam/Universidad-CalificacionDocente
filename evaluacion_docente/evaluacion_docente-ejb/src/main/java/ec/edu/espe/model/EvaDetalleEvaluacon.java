@@ -36,8 +36,8 @@ public class EvaDetalleEvaluacon implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
-    @Column(name = "COD_ROL")
-    private String codRol;
+    @Column(name = "COD_PERFIL")
+    private String codPerfil;
 
     public EvaDetalleEvaluacon() {
     }
@@ -46,9 +46,9 @@ public class EvaDetalleEvaluacon implements Serializable {
         this.evaDetalleEvaluaconPK = evaDetalleEvaluaconPK;
     }
 
-    public EvaDetalleEvaluacon(EvaDetalleEvaluaconPK evaDetalleEvaluaconPK, String codRol) {
+    public EvaDetalleEvaluacon(EvaDetalleEvaluaconPK evaDetalleEvaluaconPK, String codPerfil) {
         this.evaDetalleEvaluaconPK = evaDetalleEvaluaconPK;
-        this.codRol = codRol;
+        this.codPerfil = codPerfil;
     }
 
     public EvaDetalleEvaluacon(String codEvaluacion, String codCuestionario) {
@@ -71,12 +71,12 @@ public class EvaDetalleEvaluacon implements Serializable {
         this.ponderacion = ponderacion;
     }
 
-    public String getCodRol() {
-        return codRol;
+    public String getCodPerfil() {
+        return codPerfil;
     }
 
-    public void setCodRol(String codRol) {
-        this.codRol = codRol;
+    public void setCodPerfil(String codPerfil) {
+        this.codPerfil = codPerfil;
     }
 
     @Override

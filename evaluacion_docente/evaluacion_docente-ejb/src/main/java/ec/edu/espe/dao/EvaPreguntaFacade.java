@@ -47,7 +47,7 @@ public class EvaPreguntaFacade extends AbstractFacade<EvaPregunta> {
         
         for(int i=0;i<listaEvaluacones.size();i++)
         {
-            System.out.println(listaEvaluacones.get(i).getCodRol());
+            System.out.println(listaEvaluacones.get(i).getCodPerfil());
         }
         
         Query qry1 = this.em.createQuery("SELECT obj FROM EvaPregunta obj WHERE obj.evaCuestionario.codigo =?1");
