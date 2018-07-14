@@ -19,27 +19,29 @@ import javax.ejb.Stateless;
 @Stateless
 @LocalBean
 public class EvaDetalleEvaluacionService {
-    
+
     @EJB
     private EvaDetalleEvaluacionFacade evaDetEva;
-    
-    public EvaDetalleEvaluacion porId(String id1, String id2)
-    {
-        List<EvaDetalleEvaluacion> edeList= evaDetEva.findAll();
-        
-        EvaDetalleEvaluacion resp=new EvaDetalleEvaluacion();
-        
-        for(EvaDetalleEvaluacion obj : edeList)
-        {
-            if((obj.getEvaDetalleEvaluaconPK().getCodCuestionario().compareTo(id1)==0)&&(obj.getEvaDetalleEvaluaconPK().getCodEvaluacion().compareTo(id2)==0))
-            {
-                resp=obj;
-                break;
-            }
-        }
-        return resp;
+
+    public List<EvaDetalleEvaluacion> obtenerTodas() {
+        return this.evaDetEva.findAll();
     }
-       
-        
-    
+
+    public EvaDetalleEvaluacion obtenerPorId(String id) {
+        return this.evaDetEva.find(id);
+    }
+
+    public void crear(EvaDetalleEvaluacion eval) {
+        this.evaDetEva.create(eval);
+    }
+
+    public void modificar(EvaDetalleEvaluacion eval) {
+        this.evaDetEva.edit(eval);
+    }
+
+    public void eliminar(String id) {
+        EvaDetalleEvaluacion evalDet = this.evaDetEva.find(id);
+        this.evaDetEva.remove(evalDet);
+    }
+
 }

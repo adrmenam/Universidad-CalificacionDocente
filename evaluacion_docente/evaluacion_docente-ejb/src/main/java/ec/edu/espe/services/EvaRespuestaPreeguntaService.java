@@ -28,7 +28,21 @@ public class EvaRespuestaPreeguntaService {
         return this.evaRespuestaPreeguntaFacade.findAll();
     }
     
-    public void crear(EvaRespuestaPregunta evaRespuestaPregunta){
-        this.evaRespuestaPreeguntaFacade.create(evaRespuestaPregunta);
+     public EvaRespuestaPregunta obtenerPorId(String id) {
+        return this.evaRespuestaPreeguntaFacade.find(id);
     }
+     
+    public void crear(EvaRespuestaPregunta respPreg){
+        this.evaRespuestaPreeguntaFacade.create(respPreg);
+    }
+
+    public void modificar(EvaRespuestaPregunta respPreg) {
+        evaRespuestaPreeguntaFacade.edit(respPreg);
+    }
+     
+    public void eliminar(String id) {
+        EvaRespuestaPregunta cuest = this.evaRespuestaPreeguntaFacade.find(id);
+        this.evaRespuestaPreeguntaFacade.remove(cuest);
+    }
+
 }

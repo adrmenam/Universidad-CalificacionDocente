@@ -5,7 +5,6 @@
  */
 package ec.edu.espe.services;
 
-
 import ec.edu.espe.dao.EvaPreguntaFacade;
 import ec.edu.espe.model.EvaPregunta;
 import java.util.List;
@@ -20,15 +19,29 @@ import javax.ejb.Stateless;
 @Stateless
 @LocalBean
 public class EvaPreguntaService {
-    
+
     @EJB
     private EvaPreguntaFacade evaPreguntaFacade;
-       
-    public List<EvaPregunta> todas()
-    {
+
+    public List<EvaPregunta> obtenerTodas() {
         return this.evaPreguntaFacade.findAll();
     }
-    
-    
-    
+
+    public EvaPregunta obtenerPorId(String id) {
+        return this.evaPreguntaFacade.find(id);
+    }
+
+    public void crear(EvaPregunta preg) {
+        this.evaPreguntaFacade.create(preg);
+    }
+
+    public void modificar(EvaPregunta preg) {
+        this.evaPreguntaFacade.edit(preg);
+    }
+
+    public void eliminar(String id) {
+        EvaPregunta preg = this.evaPreguntaFacade.find(id);
+        this.evaPreguntaFacade.remove(preg);
+    }
+
 }
