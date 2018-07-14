@@ -22,15 +22,14 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name = "eva_resultado_evaluacion")
-@NamedQueries({
-    @NamedQuery(name = "EvaResultadoEvaluacion.findAll", query = "SELECT e FROM EvaResultadoEvaluacion e")})
 public class EvaResultadoEvaluacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @EmbeddedId
-    protected EvaResultadoEvaluacionPK evaResultadoEvaluacionPK;
+    private EvaResultadoEvaluacionPK evaResultadoEvaluacionPK;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Basic(optional = false)
+
     @NotNull
     @Column(name = "PROMEDIO_TOTAL")
     private BigDecimal promedioTotal;
@@ -40,11 +39,6 @@ public class EvaResultadoEvaluacion implements Serializable {
 
     public EvaResultadoEvaluacion(EvaResultadoEvaluacionPK evaResultadoEvaluacionPK) {
         this.evaResultadoEvaluacionPK = evaResultadoEvaluacionPK;
-    }
-
-    public EvaResultadoEvaluacion(EvaResultadoEvaluacionPK evaResultadoEvaluacionPK, BigDecimal promedioTotal) {
-        this.evaResultadoEvaluacionPK = evaResultadoEvaluacionPK;
-        this.promedioTotal = promedioTotal;
     }
 
     public EvaResultadoEvaluacion(String codEvaluacion, String codNrc) {
@@ -89,7 +83,7 @@ public class EvaResultadoEvaluacion implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.model.EvaResultadoEvaluacion[ evaResultadoEvaluacionPK=" + evaResultadoEvaluacionPK + " ]";
+        return "EvaResultadoEvaluacion{" + "evaResultadoEvaluacionPK=" + evaResultadoEvaluacionPK + ", promedioTotal=" + promedioTotal + '}';
     }
-    
+
 }

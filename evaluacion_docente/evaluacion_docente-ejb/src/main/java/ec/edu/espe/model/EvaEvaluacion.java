@@ -6,14 +6,9 @@
 package ec.edu.espe.model;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -22,22 +17,17 @@ import javax.validation.constraints.Size;
  * @author adrianmena
  */
 @Entity
-@Table(name = "eva_evaluacion")
-@NamedQueries({
-    @NamedQuery(name = "EvaEvaluacion.findAll", query = "SELECT e FROM EvaEvaluacion e")})
 public class EvaEvaluacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
-    @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "COD_EVALUACION")
     private String codEvaluacion;
-    @Basic(optional = false)
+    
     @NotNull
-    @Lob
-    @Size(min = 1, max = 65535)
+    @Size(min = 1, max = 1000)
     @Column(name = "DESCRIPCION")
     private String descripcion;
 
@@ -91,7 +81,7 @@ public class EvaEvaluacion implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.model.EvaEvaluacion[ codEvaluacion=" + codEvaluacion + " ]";
+        return "EvaEvaluacion{" + "codEvaluacion=" + codEvaluacion + ", descripcion=" + descripcion + '}';
     }
-    
+
 }

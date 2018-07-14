@@ -5,19 +5,17 @@
  */
 package ec.edu.espe.dao;
 
-import ec.edu.espe.model.EvaDetalleEvaluacon;
-import javax.ejb.LocalBean;
+import ec.edu.espe.model.EvaDetalleEvaluacion;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author adrianmena
+ * @author jolube
  */
 @Stateless
-@LocalBean
-public class EvaDetalleEvaluaconFacade extends AbstractFacade<EvaDetalleEvaluacon> {
+public class EvaDetalleEvaluacionFacade extends AbstractFacade<EvaDetalleEvaluacion> {
 
     @PersistenceContext(unitName = "ec.edu.espe_evaluacion_docente-ejb_ejb_1PU")
     private EntityManager em;
@@ -27,8 +25,8 @@ public class EvaDetalleEvaluaconFacade extends AbstractFacade<EvaDetalleEvaluaco
         return em;
     }
 
-    public EvaDetalleEvaluaconFacade() {
-        super(EvaDetalleEvaluacon.class);
+    public EvaDetalleEvaluacionFacade() {
+        super(EvaDetalleEvaluacion.class);
     }
     
 }

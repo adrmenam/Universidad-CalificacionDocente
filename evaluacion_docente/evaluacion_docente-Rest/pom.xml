@@ -8,11 +8,11 @@
   </parent>
 
     <groupId>ec.edu.espe</groupId>
-    <artifactId>evaluacion_docente-web</artifactId>
+    <artifactId>evaluacion_docente-Rest</artifactId>
     <version>1</version>
     <packaging>war</packaging>
 
-    <name>evaluacion_docente-web</name>
+    <name>evaluacion_docenteRest</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

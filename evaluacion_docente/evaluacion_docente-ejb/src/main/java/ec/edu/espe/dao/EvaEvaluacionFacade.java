@@ -6,17 +6,15 @@
 package ec.edu.espe.dao;
 
 import ec.edu.espe.model.EvaEvaluacion;
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author adrianmena
+ * @author jolube
  */
 @Stateless
-@LocalBean
 public class EvaEvaluacionFacade extends AbstractFacade<EvaEvaluacion> {
 
     @PersistenceContext(unitName = "ec.edu.espe_evaluacion_docente-ejb_ejb_1PU")

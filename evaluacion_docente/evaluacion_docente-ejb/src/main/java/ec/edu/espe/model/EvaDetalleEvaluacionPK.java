@@ -17,23 +17,22 @@ import javax.validation.constraints.Size;
  * @author adrianmena
  */
 @Embeddable
-public class EvaDetalleEvaluaconPK implements Serializable {
+public class EvaDetalleEvaluacionPK implements Serializable {
 
-    @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "COD_EVALUACION")
     private String codEvaluacion;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "COD_CUESTIONARIO")
     private String codCuestionario;
 
-    public EvaDetalleEvaluaconPK() {
+    public EvaDetalleEvaluacionPK() {
     }
 
-    public EvaDetalleEvaluaconPK(String codEvaluacion, String codCuestionario) {
+    public EvaDetalleEvaluacionPK(String codEvaluacion, String codCuestionario) {
         this.codEvaluacion = codEvaluacion;
         this.codCuestionario = codCuestionario;
     }
@@ -65,10 +64,10 @@ public class EvaDetalleEvaluaconPK implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof EvaDetalleEvaluaconPK)) {
+        if (!(object instanceof EvaDetalleEvaluacionPK)) {
             return false;
         }
-        EvaDetalleEvaluaconPK other = (EvaDetalleEvaluaconPK) object;
+        EvaDetalleEvaluacionPK other = (EvaDetalleEvaluacionPK) object;
         if ((this.codEvaluacion == null && other.codEvaluacion != null) || (this.codEvaluacion != null && !this.codEvaluacion.equals(other.codEvaluacion))) {
             return false;
         }
@@ -80,7 +79,7 @@ public class EvaDetalleEvaluaconPK implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.model.EvaDetalleEvaluaconPK[ codEvaluacion=" + codEvaluacion + ", codCuestionario=" + codCuestionario + " ]";
+        return "EvaDetalleEvaluacionPK{" + "codEvaluacion=" + codEvaluacion + ", codCuestionario=" + codCuestionario + '}';
     }
-    
+
 }

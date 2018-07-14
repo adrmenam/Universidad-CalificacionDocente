@@ -19,22 +19,21 @@ import javax.validation.constraints.Size;
 @Embeddable
 public class EvaRespuestaCuestionarioPK implements Serializable {
 
-    @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "COD_PERSONA")
     private String codPersona;
-    @Basic(optional = false)
+    
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "COD_EVALUACION")
     private String codEvaluacion;
-    @Basic(optional = false)
+    
     @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "COD_CUESTIONARIO")
     private String codCuestionario;
-    @Basic(optional = false)
+    
     @NotNull
     @Size(min = 1, max = 5)
     @Column(name = "COD_NRC")
@@ -116,7 +115,7 @@ public class EvaRespuestaCuestionarioPK implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.model.EvaRespuestaCuestionarioPK[ codPersona=" + codPersona + ", codEvaluacion=" + codEvaluacion + ", codCuestionario=" + codCuestionario + ", codNrc=" + codNrc + " ]";
+        return "EvaRespuestaCuestionarioPK{" + "codPersona=" + codPersona + ", codEvaluacion=" + codEvaluacion + ", codCuestionario=" + codCuestionario + ", codNrc=" + codNrc + '}';
     }
-    
+
 }

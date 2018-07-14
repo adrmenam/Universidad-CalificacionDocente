@@ -24,11 +24,6 @@ public class EvaPreguntaService {
     @EJB
     private EvaPreguntaFacade evaPreguntaFacade;
        
-    public List<EvaPregunta> cargarCuestionario(String codRol, String codEvaluacion)
-    {
-        return this.evaPreguntaFacade.cargarCuestionario(codRol, codEvaluacion);
-    }
-    
     public List<EvaPregunta> todas()
     {
         return this.evaPreguntaFacade.findAll();

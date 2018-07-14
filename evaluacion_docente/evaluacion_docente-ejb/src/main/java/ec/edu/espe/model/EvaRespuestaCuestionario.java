@@ -24,21 +24,19 @@ import javax.validation.constraints.NotNull;
  * @author adrianmena
  */
 @Entity
-@Table(name = "eva_respuesta_cuestionario")
-@NamedQueries({
-    @NamedQuery(name = "EvaRespuestaCuestionario.findAll", query = "SELECT e FROM EvaRespuestaCuestionario e")})
 public class EvaRespuestaCuestionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @EmbeddedId
-    protected EvaRespuestaCuestionarioPK evaRespuestaCuestionarioPK;
-    @Basic(optional = false)
+    private EvaRespuestaCuestionarioPK evaRespuestaCuestionarioPK;
+
     @NotNull
     @Column(name = "FECHA")
     @Temporal(TemporalType.DATE)
     private Date fecha;
+
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Basic(optional = false)
     @NotNull
     @Column(name = "CALIFICACION_PROMEDIO")
     private BigDecimal calificacionPromedio;
@@ -48,16 +46,6 @@ public class EvaRespuestaCuestionario implements Serializable {
 
     public EvaRespuestaCuestionario(EvaRespuestaCuestionarioPK evaRespuestaCuestionarioPK) {
         this.evaRespuestaCuestionarioPK = evaRespuestaCuestionarioPK;
-    }
-
-    public EvaRespuestaCuestionario(EvaRespuestaCuestionarioPK evaRespuestaCuestionarioPK, Date fecha, BigDecimal calificacionPromedio) {
-        this.evaRespuestaCuestionarioPK = evaRespuestaCuestionarioPK;
-        this.fecha = fecha;
-        this.calificacionPromedio = calificacionPromedio;
-    }
-
-    public EvaRespuestaCuestionario(String codPersona, String codEvaluacion, String codCuestionario, String codNrc) {
-        this.evaRespuestaCuestionarioPK = new EvaRespuestaCuestionarioPK(codPersona, codEvaluacion, codCuestionario, codNrc);
     }
 
     public EvaRespuestaCuestionarioPK getEvaRespuestaCuestionarioPK() {
@@ -106,7 +94,7 @@ public class EvaRespuestaCuestionario implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.model.EvaRespuestaCuestionario[ evaRespuestaCuestionarioPK=" + evaRespuestaCuestionarioPK + " ]";
+        return "EvaRespuestaCuestionario{" + "evaRespuestaCuestionarioPK=" + evaRespuestaCuestionarioPK + ", fecha=" + fecha + ", calificacionPromedio=" + calificacionPromedio + '}';
     }
-    
+
 }

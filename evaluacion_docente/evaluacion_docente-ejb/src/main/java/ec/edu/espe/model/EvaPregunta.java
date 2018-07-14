@@ -22,20 +22,18 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "eva_pregunta")
-@NamedQueries({
-    @NamedQuery(name = "EvaPregunta.findAll", query = "SELECT e FROM EvaPregunta e")})
 public class EvaPregunta implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "COD_PREGUNTA")
     private Integer codPregunta;
+    
     @Size(max = 30)
     @Column(name = "COD_CUESTIONARIO")
     private String codCuestionario;
-    @Basic(optional = false)
+    
     @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "ENUNCIADO")
@@ -99,7 +97,7 @@ public class EvaPregunta implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.model.EvaPregunta[ codPregunta=" + codPregunta + " ]";
+        return "EvaPregunta{" + "codPregunta=" + codPregunta + ", codCuestionario=" + codCuestionario + ", enunciado=" + enunciado + '}';
     }
-    
+
 }

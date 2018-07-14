@@ -7,13 +7,9 @@ package ec.edu.espe.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -22,44 +18,34 @@ import javax.validation.constraints.Size;
  * @author adrianmena
  */
 @Entity
-@Table(name = "eva_detalle_evaluacon")
-@NamedQueries({
-    @NamedQuery(name = "EvaDetalleEvaluacon.findAll", query = "SELECT e FROM EvaDetalleEvaluacon e")})
-public class EvaDetalleEvaluacon implements Serializable {
+public class EvaDetalleEvaluacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @EmbeddedId
-    protected EvaDetalleEvaluaconPK evaDetalleEvaluaconPK;
+    private EvaDetalleEvaluacionPK evaDetalleEvaluaconPK;
+   
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "PONDERACION")
     private BigDecimal ponderacion;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 10)
-    @Column(name = "COD_PERFIL")
-    private String codPerfil;
+    @Column(name = "COD_ROL")
+    private String codRol;
 
-    public EvaDetalleEvaluacon() {
+    public EvaDetalleEvaluacion() {
     }
 
-    public EvaDetalleEvaluacon(EvaDetalleEvaluaconPK evaDetalleEvaluaconPK) {
+    public EvaDetalleEvaluacion(EvaDetalleEvaluacionPK evaDetalleEvaluaconPK) {
         this.evaDetalleEvaluaconPK = evaDetalleEvaluaconPK;
     }
 
-    public EvaDetalleEvaluacon(EvaDetalleEvaluaconPK evaDetalleEvaluaconPK, String codPerfil) {
-        this.evaDetalleEvaluaconPK = evaDetalleEvaluaconPK;
-        this.codPerfil = codPerfil;
-    }
-
-    public EvaDetalleEvaluacon(String codEvaluacion, String codCuestionario) {
-        this.evaDetalleEvaluaconPK = new EvaDetalleEvaluaconPK(codEvaluacion, codCuestionario);
-    }
-
-    public EvaDetalleEvaluaconPK getEvaDetalleEvaluaconPK() {
+    public EvaDetalleEvaluacionPK getEvaDetalleEvaluaconPK() {
         return evaDetalleEvaluaconPK;
     }
 
-    public void setEvaDetalleEvaluaconPK(EvaDetalleEvaluaconPK evaDetalleEvaluaconPK) {
+    public void setEvaDetalleEvaluaconPK(EvaDetalleEvaluacionPK evaDetalleEvaluaconPK) {
         this.evaDetalleEvaluaconPK = evaDetalleEvaluaconPK;
     }
 
@@ -71,12 +57,12 @@ public class EvaDetalleEvaluacon implements Serializable {
         this.ponderacion = ponderacion;
     }
 
-    public String getCodPerfil() {
-        return codPerfil;
+    public String getCodRol() {
+        return codRol;
     }
 
-    public void setCodPerfil(String codPerfil) {
-        this.codPerfil = codPerfil;
+    public void setCodRol(String codRol) {
+        this.codRol = codRol;
     }
 
     @Override
@@ -89,10 +75,10 @@ public class EvaDetalleEvaluacon implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof EvaDetalleEvaluacon)) {
+        if (!(object instanceof EvaDetalleEvaluacion)) {
             return false;
         }
-        EvaDetalleEvaluacon other = (EvaDetalleEvaluacon) object;
+        EvaDetalleEvaluacion other = (EvaDetalleEvaluacion) object;
         if ((this.evaDetalleEvaluaconPK == null && other.evaDetalleEvaluaconPK != null) || (this.evaDetalleEvaluaconPK != null && !this.evaDetalleEvaluaconPK.equals(other.evaDetalleEvaluaconPK))) {
             return false;
         }
@@ -101,7 +87,7 @@ public class EvaDetalleEvaluacon implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.model.EvaDetalleEvaluacon[ evaDetalleEvaluaconPK=" + evaDetalleEvaluaconPK + " ]";
+        return "EvaDetalleEvaluacion{" + "evaDetalleEvaluaconPK=" + evaDetalleEvaluaconPK + ", ponderacion=" + ponderacion + ", codRol=" + codRol + '}';
     }
-    
+
 }

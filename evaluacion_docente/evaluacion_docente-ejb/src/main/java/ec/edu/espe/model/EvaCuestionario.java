@@ -7,13 +7,9 @@ package ec.edu.espe.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -24,24 +20,20 @@ import javax.validation.constraints.Size;
  * @author adrianmena
  */
 @Entity
-@Table(name = "eva_cuestionario")
-@NamedQueries({
-    @NamedQuery(name = "EvaCuestionario.findAll", query = "SELECT e FROM EvaCuestionario e")})
 public class EvaCuestionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
-    @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "COD_CUESTIONARIO")
     private String codCuestionario;
-    @Basic(optional = false)
+
     @NotNull
     @Column(name = "FECHA_CREACION")
     @Temporal(TemporalType.DATE)
     private Date fechaCreacion;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 3)
     @Column(name = "ESTADO")
@@ -52,12 +44,6 @@ public class EvaCuestionario implements Serializable {
 
     public EvaCuestionario(String codCuestionario) {
         this.codCuestionario = codCuestionario;
-    }
-
-    public EvaCuestionario(String codCuestionario, Date fechaCreacion, String estado) {
-        this.codCuestionario = codCuestionario;
-        this.fechaCreacion = fechaCreacion;
-        this.estado = estado;
     }
 
     public String getCodCuestionario() {
@@ -106,7 +92,7 @@ public class EvaCuestionario implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.model.EvaCuestionario[ codCuestionario=" + codCuestionario + " ]";
+        return "EvaCuestionario{" + "codCuestionario=" + codCuestionario + ", fechaCreacion=" + fechaCreacion + ", estado=" + estado + '}';
     }
-    
+
 }

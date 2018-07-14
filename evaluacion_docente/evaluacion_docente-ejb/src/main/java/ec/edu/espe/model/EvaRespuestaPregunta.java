@@ -23,27 +23,25 @@ import javax.validation.constraints.Size;
  * @author adrianmena
  */
 @Entity
-@Table(name = "eva_respuesta_pregunta")
-@NamedQueries({
-    @NamedQuery(name = "EvaRespuestaPregunta.findAll", query = "SELECT e FROM EvaRespuestaPregunta e")})
 public class EvaRespuestaPregunta implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "COD_REGISTRO_RESPUESTAS")
     private Integer codRegistroRespuestas;
-    @Basic(optional = false)
+    
     @NotNull
     @Column(name = "COD_PREGUNTA")
     private int codPregunta;
-    @Basic(optional = false)
+    
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "COD_PERSONA")
     private String codPersona;
-    @Basic(optional = false)
+    
     @NotNull
     @Column(name = "RESPUESTA")
     private int respuesta;
@@ -53,13 +51,6 @@ public class EvaRespuestaPregunta implements Serializable {
 
     public EvaRespuestaPregunta(Integer codRegistroRespuestas) {
         this.codRegistroRespuestas = codRegistroRespuestas;
-    }
-
-    public EvaRespuestaPregunta(Integer codRegistroRespuestas, int codPregunta, String codPersona, int respuesta) {
-        this.codRegistroRespuestas = codRegistroRespuestas;
-        this.codPregunta = codPregunta;
-        this.codPersona = codPersona;
-        this.respuesta = respuesta;
     }
 
     public Integer getCodRegistroRespuestas() {
@@ -116,7 +107,7 @@ public class EvaRespuestaPregunta implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.model.EvaRespuestaPregunta[ codRegistroRespuestas=" + codRegistroRespuestas + " ]";
+        return "EvaRespuestaPregunta{" + "codRegistroRespuestas=" + codRegistroRespuestas + ", codPregunta=" + codPregunta + ", codPersona=" + codPersona + ", respuesta=" + respuesta + '}';
     }
-    
+
 }

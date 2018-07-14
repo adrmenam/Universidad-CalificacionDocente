@@ -6,7 +6,6 @@
 package ec.edu.espe.model;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
@@ -19,12 +18,11 @@ import javax.validation.constraints.Size;
 @Embeddable
 public class EvaResultadoEvaluacionPK implements Serializable {
 
-    @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "COD_EVALUACION")
     private String codEvaluacion;
-    @Basic(optional = false)
+    
     @NotNull
     @Size(min = 1, max = 5)
     @Column(name = "COD_NRC")
@@ -80,7 +78,7 @@ public class EvaResultadoEvaluacionPK implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.model.EvaResultadoEvaluacionPK[ codEvaluacion=" + codEvaluacion + ", codNrc=" + codNrc + " ]";
+        return "EvaResultadoEvaluacionPK{" + "codEvaluacion=" + codEvaluacion + ", codNrc=" + codNrc + '}';
     }
-    
+
 }

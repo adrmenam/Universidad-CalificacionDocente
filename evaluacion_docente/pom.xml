@@ -8,7 +8,7 @@
   <name>evaluacion_docente</name>
   <modules>
     <module>evaluacion_docente-ear</module>
-    <module>evaluacion_docente-web</module>
     <module>evaluacion_docente-ejb</module>
+    <module>evaluacion_docente-Rest</module>
   </modules>
 </project>
