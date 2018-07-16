@@ -6,9 +6,11 @@
 package ec.edu.espe.dao;
 
 import ec.edu.espe.model.EvaPregunta;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,5 +30,16 @@ public class EvaPreguntaFacade extends AbstractFacade<EvaPregunta> {
     public EvaPreguntaFacade() {
         super(EvaPregunta.class);
     }
+    
+    public List<EvaPregunta> getPreguntaPorCuestionario(String codCuestionario) {
+ 
+        Query q = this.em.createQuery("SELECT obj FROM EvaPregunta obj WHERE obj.codCuestionario = ?1");
+ 
+        q.setParameter(1, codCuestionario);
+ 
+        return q.getResultList();
+ 
+    }
+ 
     
 }

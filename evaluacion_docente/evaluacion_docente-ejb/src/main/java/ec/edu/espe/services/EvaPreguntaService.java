@@ -30,6 +30,10 @@ public class EvaPreguntaService {
     public EvaPregunta obtenerPorId(Integer id) {
         return this.evaPreguntaFacade.find(id);
     }
+    
+    public List<EvaPregunta> obtenerPorIdCuestionario(String codCuestionario) {
+        return this.evaPreguntaFacade.getPreguntaPorCuestionario(codCuestionario);
+    }
 
     public void crear(EvaPregunta preg) {
         this.evaPreguntaFacade.create(preg);

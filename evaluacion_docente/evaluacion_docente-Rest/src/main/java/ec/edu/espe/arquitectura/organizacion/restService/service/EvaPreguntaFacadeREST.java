@@ -50,11 +50,18 @@ public class EvaPreguntaFacadeREST  {
         preguntaService.eliminar(id);
     }
 
+//    @GET
+//    @Path("{id}")
+//    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+//    public EvaPregunta find(@PathParam("id") Integer id) {
+//        return preguntaService.obtenerPorId(id);
+//    }
+    
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public EvaPregunta find(@PathParam("id") Integer id) {
-        return preguntaService.obtenerPorId(id);
+    public List<EvaPregunta> find(@PathParam("id") String codCuestionario) {
+        return preguntaService.obtenerPorIdCuestionario(codCuestionario);
     }
 
     @GET
