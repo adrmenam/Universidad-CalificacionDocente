@@ -7,6 +7,7 @@ package ec.edu.espe.services;
 
 import ec.edu.espe.dao.EvaRespuestaCuestionarioFacade;
 import ec.edu.espe.model.EvaRespuestaCuestionario;
+import ec.edu.espe.model.EvaRespuestaCuestionarioPK;
 import ec.edu.espe.model.EvaRespuestaPregunta;
 import java.math.BigDecimal;
 import java.util.List;
@@ -67,7 +68,7 @@ public class EvaRespuestaCuestionarioService {
         return this.evaResEvaFacade.findAll();
     }
 
-    public EvaRespuestaCuestionario obtenerPorId(String id) {
+    public EvaRespuestaCuestionario obtenerPorId(EvaRespuestaCuestionarioPK id) {
         return this.evaResEvaFacade.find(id);
     }
 
@@ -79,7 +80,7 @@ public class EvaRespuestaCuestionarioService {
         this.evaResEvaFacade.edit(eval);
     }
 
-    public void eliminar(String id) {
+    public void eliminar(EvaRespuestaCuestionarioPK id) {
         EvaRespuestaCuestionario evalDet = this.evaResEvaFacade.find(id);
         this.evaResEvaFacade.remove(evalDet);
     }

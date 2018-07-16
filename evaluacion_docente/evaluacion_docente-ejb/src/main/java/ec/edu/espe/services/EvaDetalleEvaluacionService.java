@@ -7,6 +7,7 @@ package ec.edu.espe.services;
 
 import ec.edu.espe.dao.EvaDetalleEvaluacionFacade;
 import ec.edu.espe.model.EvaDetalleEvaluacion;
+import ec.edu.espe.model.EvaDetalleEvaluacionPK;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
@@ -27,7 +28,7 @@ public class EvaDetalleEvaluacionService {
         return this.evaDetEva.findAll();
     }
 
-    public EvaDetalleEvaluacion obtenerPorId(String id) {
+    public EvaDetalleEvaluacion obtenerPorId(EvaDetalleEvaluacionPK id) {
         return this.evaDetEva.find(id);
     }
 
@@ -39,7 +40,7 @@ public class EvaDetalleEvaluacionService {
         this.evaDetEva.edit(eval);
     }
 
-    public void eliminar(String id) {
+    public void eliminar(EvaDetalleEvaluacionPK id) {
         EvaDetalleEvaluacion evalDet = this.evaDetEva.find(id);
         this.evaDetEva.remove(evalDet);
     }

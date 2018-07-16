@@ -19,7 +19,7 @@ import javax.ejb.LocalBean;
  */
 @Stateless
 @LocalBean
-public class EvaRespuestaPreeguntaService {
+public class EvaRespuestaPreguntaService {
 
     @EJB
     private EvaRespuestaPreguntaFacade evaRespuestaPreeguntaFacade;
@@ -28,7 +28,7 @@ public class EvaRespuestaPreeguntaService {
         return this.evaRespuestaPreeguntaFacade.findAll();
     }
     
-     public EvaRespuestaPregunta obtenerPorId(String id) {
+     public EvaRespuestaPregunta obtenerPorId(Integer id) {
         return this.evaRespuestaPreeguntaFacade.find(id);
     }
      
@@ -40,7 +40,7 @@ public class EvaRespuestaPreeguntaService {
         evaRespuestaPreeguntaFacade.edit(respPreg);
     }
      
-    public void eliminar(String id) {
+    public void eliminar(Integer id) {
         EvaRespuestaPregunta cuest = this.evaRespuestaPreeguntaFacade.find(id);
         this.evaRespuestaPreeguntaFacade.remove(cuest);
     }

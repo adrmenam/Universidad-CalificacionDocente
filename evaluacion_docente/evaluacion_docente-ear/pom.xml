@@ -49,7 +49,7 @@
         </dependency>
         <dependency>
             <groupId>ec.edu.espe</groupId>
-            <artifactId>evaluacion_docente-web</artifactId>
+            <artifactId>evaluacion_docente-Rest</artifactId>
             <version>1</version>
             <type>war</type>
         </dependency>

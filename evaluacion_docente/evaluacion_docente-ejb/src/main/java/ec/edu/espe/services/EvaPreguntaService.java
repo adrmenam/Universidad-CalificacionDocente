@@ -27,7 +27,7 @@ public class EvaPreguntaService {
         return this.evaPreguntaFacade.findAll();
     }
 
-    public EvaPregunta obtenerPorId(String id) {
+    public EvaPregunta obtenerPorId(Integer id) {
         return this.evaPreguntaFacade.find(id);
     }
 
@@ -39,7 +39,7 @@ public class EvaPreguntaService {
         this.evaPreguntaFacade.edit(preg);
     }
 
-    public void eliminar(String id) {
+    public void eliminar(Integer id) {
         EvaPregunta preg = this.evaPreguntaFacade.find(id);
         this.evaPreguntaFacade.remove(preg);
     }
