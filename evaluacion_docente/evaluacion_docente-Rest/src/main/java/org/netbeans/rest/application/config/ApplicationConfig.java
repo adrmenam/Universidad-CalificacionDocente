@@ -28,7 +28,8 @@ public class ApplicationConfig extends Application {
      * all resources defined in the project.
      * If required, comment out calling this method in getClasses().
      */
-    private void addRestResourceClasses(Set<Class<?>> resources) {
+    private void addRestResourceClasses(Set<Class<?>> resources) {       
+        resources.add(ec.edu.espe.arquitectura.organizacion.restService.filter.ResponseCorsFilter.class);
         resources.add(ec.edu.espe.arquitectura.organizacion.restService.service.EvaCuestionarioFacadeREST.class);
         resources.add(ec.edu.espe.arquitectura.organizacion.restService.service.EvaDetalleEvaluacionFacadeREST.class);
         resources.add(ec.edu.espe.arquitectura.organizacion.restService.service.EvaEvaluacionFacadeREST.class);
